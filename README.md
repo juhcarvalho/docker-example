@@ -1,3 +1,9 @@
-## Docker, Dockerfile e Docker Compose
+# Docker, Dockerfile e Docker Compose
 
-### Dockerfile contem exemplos simples de utilização de docker com Dockerfile
+### Dockerfile
+ - Esse diretório contem exemplos simples de utilização de docker com Dockerfile
+ 
+
+### Docker-compose
+  - Esse diretório contem exemplos de utilização de docker-compose
+  
