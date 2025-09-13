@@ -1,0 +1,20 @@
+services:
+  sqlserver:
+    build:
+      context: ./sqlserver
+      dockerfile: Dockerfile
+    container_name: sqlserver
+    ports:
+      - "1433:1433"
+
+  app-java:
+    build:
+      context: ./app-java
+      dockerfile: Dockerfile
+    container_name: app-java
+    ports:
+      - "8080:8080"
+    depends_on:
+      - sqlserver
+    # volumes:
+    #   - ./logs:/app/logs
