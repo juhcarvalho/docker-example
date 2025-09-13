@@ -23,5 +23,3 @@ services:
     depends_on:
       sqlserver:
         condition: service_healthy
-    volumes:
-      - ./logs:/app/logs
