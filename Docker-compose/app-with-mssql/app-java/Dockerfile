@@ -10,8 +10,4 @@ ENV SPRING_DATASOURCE_PASSWORD="SenhaForte123"
 
 EXPOSE 8080
 
-
-COPY wait-for-it.sh /app/wait-for-it.sh
-RUN chmod 777 /app/wait-for-it.sh
-
-ENTRYPOINT ["wait-for-it.sh", "sqlserver:1433", "--", "java", "-jar", "/app/app.jar"]
+CMD ["java", "-jar", "app.jar"]

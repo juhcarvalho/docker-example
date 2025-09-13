@@ -6,6 +6,12 @@ services:
     container_name: sqlserver
     ports:
       - "1433:1433"
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo > /dev/tcp/localhost/1433"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
 
   app-java:
     build:
@@ -15,6 +21,7 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - sqlserver
-    # volumes:
-    #   - ./logs:/app/logs
+      sqlserver:
+        condition: service_healthy
+    volumes:
+      - ./logs:/app/logs
